@@ -1,6 +1,6 @@
 import React from 'react';
 import routes from './routes'
-import Header from './Components/Header'
+import Header from './Components/Header/Header'
 import {withRouter} from 'react-router-dom'
 import './App.css';
 

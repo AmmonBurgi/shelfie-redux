@@ -4,4 +4,5 @@ insert into shelfieU(
 ) values (
     $1,
     $2
-);
+)
+returning id, username

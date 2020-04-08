@@ -1,10 +1,12 @@
 const initialState = {
-    user: {}
+    id: '',
+    username: ''
 }
 
 const GET_USER = 'GET_USER'
-
+console.log(initialState)
 export function getUser(userObj){
+    // console.log(userObj)
     return {
         type: GET_USER,
         payload: userObj

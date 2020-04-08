@@ -1,7 +1,7 @@
 require('dotenv').config()
     const massive = require('massive'),
         express = require('express'),
-        session = require('express-sessions'),
+        session = require('express-session'),
         {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env,
         ctrl = require('./controller'),
         authCtrl = require('./authController'),
@@ -12,7 +12,7 @@ require('dotenv').config()
 
     app.use(session({
         resave: false,
-        saveUnitialized: true,
+        saveUninitialized: true,
         secret: SESSION_SECRET,
         cookie: {maxAge: 1000 * 60 * 60 * 24}
     }))
@@ -26,9 +26,10 @@ require('dotenv').config()
     })
 
     //normal endpoints
+    app.get('/api/products/:id', ctrl.getAllProducts)
 
     //auth endpoints
     app.post('/api/register', authCtrl.register)
-    app.post('/api/login', authCtrl.register)
+    app.post('/api/login', authCtrl.login)
     
     app.listen(port, () => console.log(`server listening on port ${port}`))
